@@ -1,0 +1,6 @@
+[workspace]
+resolver = "1"
+
+members = [
+    "pals-01-convert-hex-to-base64",
+]
