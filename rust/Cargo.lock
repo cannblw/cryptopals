@@ -21,3 +21,10 @@ dependencies = [
  "base64",
  "hex",
 ]
+
+[[package]]
+name = "pals-02-fixed-xor"
+version = "0.1.0"
+dependencies = [
+ "hex",
+]

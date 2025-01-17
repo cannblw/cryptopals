@@ -3,4 +3,5 @@ resolver = "1"
 
 members = [
     "pals-01-convert-hex-to-base64",
+    "pals-02-fixed-xor",
 ]
