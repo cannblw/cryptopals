@@ -12,6 +12,7 @@ set(SOURCES
     src/main.cpp
     src/helper.cpp
     src/01-convert-hex-to-base64.cpp
+    src/02-fixed-xor.cpp
 )
 
 find_path(CPPCODEC_INCLUDE_DIRS "cppcodec/base32_crockford.hpp")

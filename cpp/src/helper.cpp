@@ -1,4 +1,7 @@
 #include <cstdint>
+#include <iomanip>
+#include <ios>
+#include <sstream>
 #include <stdexcept>
 #include <string>
 #include <vector>
@@ -24,6 +27,18 @@ std::vector<uint8_t> hexStrToBytes(const std::string& hex) {
   }
 
   return byteArray;
+}
+
+std::string bytesToHex(const std::vector<uint8_t>& bytes) {
+  std::stringstream ss;
+  ss << std::hex;
+
+  for (size_t i = 0; i < bytes.size(); ++i) {
+    ss << std::setw(2) << std::setfill('0')
+       << static_cast<unsigned int>(bytes[i]);
+  }
+
+  return ss.str();
 }
 
 } // namespace helper
