@@ -16,7 +16,7 @@ std::vector<uint8_t> hexStrToBytes(const std::string& hex) {
   byteArray.reserve(hex.length() / 2);
 
   for (size_t i = 0; i < hex.length(); i += 2) {
-    auto byteString = hex.substr(i, 2);
+    std::string byteString = hex.substr(i, 2);
 
     // Hex to byte
     uint8_t byte = static_cast<uint8_t>(std::stoi(byteString, nullptr, 16));
