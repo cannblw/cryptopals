@@ -6,3 +6,4 @@ AlignConsecutiveDeclarations: true
 DerivePointerAlignment: false
 ColumnLimit: 80
 BreakBeforeBraces: Attach
+InsertNewlineAtEOF: true
