@@ -7,9 +7,9 @@
 #include <iostream>
 
 constexpr std::array<std::pair<const char*, void (*)()>, 1> subprograms{
-    {{"convert_hex_to_base64", convert_hex_to_base64}}};
+    {{"hex_to_b64", convertHexToBase64}}};
 
-void print_usage(char* argv[]) {
+void printUsage(char* argv[]) {
   std::cout << std::format("{} <subcommand>", argv[0]) << '\n' << '\n';
   std::cout << "Allowed subcommands:" << '\n';
 
@@ -20,7 +20,7 @@ void print_usage(char* argv[]) {
 
 int main(int argc, char* argv[]) {
   if (argc < 2) {
-    print_usage(argv);
+    printUsage(argv);
     return -1;
   }
 
@@ -32,6 +32,6 @@ int main(int argc, char* argv[]) {
   }
 
   std::cout << "Unknown subcommand: " << argv[1] << '\n';
-  print_usage(argv);
+  printUsage(argv);
   return -1;
 }
