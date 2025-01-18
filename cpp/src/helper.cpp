@@ -41,4 +41,14 @@ std::string bytesToHex(const std::vector<uint8_t>& bytes) {
   return ss.str();
 }
 
+std::string bytesToString(const std::vector<uint8_t>& bytes) {
+  std::stringstream ss;
+
+  for (size_t i = 0; i < bytes.size(); ++i) {
+    ss << bytes[i];
+  }
+
+  return ss.str();
+}
+
 } // namespace helper

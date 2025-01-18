@@ -1,5 +1,6 @@
 #include "01-convert-hex-to-base64.h"
 #include "02-fixed-xor.h"
+#include "03-single-byte-xor.h"
 
 #include <cppcodec/base64_rfc4648.hpp>
 
@@ -9,9 +10,10 @@
 
 using Subprogram = std::pair<const char*, void (*)()>;
 
-constexpr std::array<Subprogram, 2> subprograms{
+constexpr std::array<Subprogram, 3> subprograms{
     {{"01-hex-to-b64", convertHexToBase64},
-     {"02-fixed-xor", calculateFixedXor}},
+     {"02-fixed-xor", calculateFixedXor},
+     {"03-single-byte-xor", singleByteXor}},
 };
 
 void printUsage(char* argv[]) {
