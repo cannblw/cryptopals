@@ -1,20 +1,19 @@
+#include "01-convert-hex-to-base64.h"
+
+#include <cppcodec/base64_rfc4648.hpp>
+
 #include <array>
 #include <format>
-#include <functional>
 #include <iostream>
 
-using CommandFunction = void (*)();
+constexpr std::array<std::pair<const char *, void (*)()>, 1> subprograms{
+    {{"convert_hex_to_base64", convert_hex_to_base64}}};
 
-constexpr void sayHello() {}
-
-constexpr std::array<std::pair<const char *, CommandFunction>, 2> subprograms =
-    {{{"hello", sayHello}}};
-
-void print_usage(char **argv) {
-  std::cout << std::format("{} <subcommand>", *argv[0]) << '\n' << '\n';
+void print_usage(char *argv[]) {
+  std::cout << std::format("{} <subcommand>", argv[0]) << '\n' << '\n';
   std::cout << "Allowed subcommands:" << '\n';
 
-  for (auto item : subprograms) {
+  for (const auto &item : subprograms) {
     std::cout << item.first << '\n';
   }
 }
@@ -25,5 +24,14 @@ int main(int argc, char *argv[]) {
     return -1;
   }
 
-  return 0;
+  for (const auto &item : subprograms) {
+    if (std::string(argv[1]) == item.first) {
+      item.second();
+      return 0;
+    }
+  }
+
+  std::cout << "Unknown subcommand: " << argv[1] << '\n';
+  print_usage(argv);
+  return -1;
 }
