@@ -10,6 +10,7 @@ add_compile_options(-Wall -Wpedantic -Wextra -Werror -pedantic-errors)
 
 set(SOURCES
     src/main.cpp
+    src/helper.cpp
     src/01-convert-hex-to-base64.cpp
 )
 
